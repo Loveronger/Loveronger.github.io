@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Loveronger's blog]]></title>
+  <subtitle><![CDATA[Walk straight ahead]]></subtitle>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com"/>
+  <updated>2013-10-09T11:07:49.689Z</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Loveronger]]></name>
+    <email><![CDATA[1402145603@qq.com]]></email>
+  </author>
+  <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[First Blog]]></title>
+    <link href="http://yoursite.com/2013/10/07/first-blog/"/>
+    <id>http://yoursite.com/2013/10/07/first-blog/</id>
+    <published>2013-10-07T14:38:26.000Z</published>
+    <updated>2013-10-07T14:38:26.000Z</updated>
+    <content type="html"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[My new post]]></title>
+    <link href="http://yoursite.com/2013/10/06/hello-world/"/>
+    <id>http://yoursite.com/2013/10/06/hello-world/</id>
+    <published>2013-10-06T14:13:06.000Z</published>
+    <updated>2013-10-09T10:49:00.000Z</updated>
+    <content type="html"><![CDATA[<h1>我的第一篇hexo的文章：</h1>
+<hr>
+<p>最近在看一本叫“深入浅出html”的书,于是舍友就推荐了这个……<a id="more"></a> 说hexo上可以自己搭建自己<br>的博客，而且写作比那个要方便的多，就一时兴起，开始折腾，这不，几天之后，终于把基本<br>的一些东西完全弄好了，这是我的第一篇个人博客！</p>
+<hr>
+<p>我会一直长足的走下去\:Markdown!</p>
+]]></content>
+    <category scheme="http://yoursite.com/tags/博客，文章/" term="博客，文章"/>
+    <category scheme="http://yoursite.com/categories/blog/" term="blog"/>
+  </entry>
+</feed>
