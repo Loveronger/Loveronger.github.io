@@ -4,21 +4,13 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com"/>
-  <updated>2013-10-09T12:15:38.628Z</updated>
+  <updated>2013-10-09T12:29:02.550Z</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
     <email><![CDATA[1402145603@qq.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
-  <entry>
-    <title type="html"><![CDATA[asd]]></title>
-    <link href="http://yoursite.com/2013/10/09/asd/"/>
-    <id>http://yoursite.com/2013/10/09/asd/</id>
-    <published>2013-10-09T11:37:43.000Z</published>
-    <updated>2013-10-09T11:37:43.000Z</updated>
-    <content type="html"><![CDATA[]]></content>
-  </entry>
   <entry>
     <title type="html"><![CDATA[First Blog]]></title>
     <link href="http://yoursite.com/2013/10/07/first-blog/"/>
