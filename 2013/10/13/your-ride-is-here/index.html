@@ -63,30 +63,36 @@
       
         <p>USCAO第一题： your ride is here<br>题目的翻译这里就不用再说了，相信这对大家来说不是问题。第一题我个人感觉考点如下:<br>1. 字符串的处理，要输入两个不超过6的字符串而且要逐个处理，还是用C++中的string方便，因为我觉得要用C语言的话光输入就够你头疼了。<br>2. 在处理过程中，要把字符转换成数字，在这纠结了有好大一会儿，太白痴了。用该字符减去‘A’，在加一，即得。得出结论：把字符转化为数字，减去一个字符串即可！！！<br>3：第一次刷uscao,别忘了要用文件，所有的题目都要用文件来完成。</p>
 <p>贴上我的代码，供大家参考：</p>
-<p>#include <iostream><br>#include <string><br>#include <fstream><br>int main()<br>{<br>    using namespace std;</p>
-<pre><code>ofstream fout (<span class="string">"ride.out"</span>);
-ifstream fin  (<span class="string">"ride.in"</span>);
-
-string a,b;
-
- <span class="keyword">while</span>(fin &gt;&gt; a &gt;&gt; b)
+<pre><code>\#include &lt;iostream&gt;
+\#include &lt;<span class="keyword">string</span>&gt;
+\#include &lt;fstream&gt;
+<span class="keyword">int</span> main()
 {
-    <span class="keyword">long</span> <span class="keyword">int</span> t1 = <span class="number">1</span>,t2 = <span class="number">1</span>;
+    <span class="keyword">using</span> <span class="class"><span class="keyword">namespace</span> <span class="title">std</span>;
 
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a<span class="variable">.size</span>(); i++)
-        t1 *= (a[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+    <span class="title">ofstream</span> <span class="title">fout</span> ("<span class="title">ride</span>.<span class="title">out</span>");
+    <span class="title">ifstream</span> <span class="title">fin</span>  ("<span class="title">ride</span>.<span class="title">in</span>");
 
-    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b<span class="variable">.size</span>(); i++)
-        t2 *= (b[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+    <span class="title">string</span> <span class="title">a</span>,<span class="title">b</span>;
 
-    <span class="keyword">if</span>((t1 % <span class="number">47</span>) == (t2 % <span class="number">47</span>))
-        fout &lt;&lt; <span class="string">"GO\n"</span>;
-    <span class="keyword">else</span>
-        fout &lt;&lt; <span class="string">"STAY\n"</span>;
-}
+    <span class="title">while</span>(<span class="title">fin</span> &gt;&gt; <span class="title">a</span> &gt;&gt; <span class="title">b</span>)
+    {</span>
+        <span class="keyword">long</span> <span class="keyword">int</span> t1 = <span class="number">1</span>,t2 = <span class="number">1</span>;
 
-<span class="keyword">return</span> <span class="number">0</span>;</code></pre>
-<p>}</p>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.size(); i++)
+            t1 *= (a[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.size(); i++)
+            t2 *= (b[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+
+        if((t1 % <span class="number">47</span>) == (t2 % <span class="number">47</span>))
+            fout &lt;&lt; <span class="string">"GO\n"</span>;
+        <span class="keyword">else</span>
+            fout &lt;&lt; <span class="string">"STAY\n"</span>;
+    }
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
 
       
     </div>
