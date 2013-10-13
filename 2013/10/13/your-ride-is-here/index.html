@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>First Blog | Loveronger's blog</title>
+  <title>Your ride is here | Loveronger's blog</title>
   <meta name="author" content="Loveronger">
   
   <meta name="description" content="Walk straight ahead">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="First Blog"/>
+  <meta property="og:title" content="Your ride is here"/>
   <meta property="og:site_name" content="Loveronger's blog"/>
 
   
@@ -51,23 +51,62 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-10-07T14:38:26.000Z"><a href="/2013/10/07/first-blog/">10月 7 2013</a></time>
+        <time datetime="2013-10-13T05:04:25.000Z"><a href="/2013/10/13/your-ride-is-here/">10月 13 2013</a></time>
       
       
   
-    <h1 class="title">First Blog</h1>
+    <h1 class="title">Your ride is here</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <p>USCAO第一题： your ride is here<br>题目的翻译这里就不用再说了，相信这对大家来说不是问题。第一题我个人感觉考点如下:<br>1. 字符串的处理，要输入两个不超过6的字符串而且要逐个处理，还是用C++中的string方便，因为我觉得要用C语言的话光输入就够你头疼了。<br>2. 在处理过程中，要把字符转换成数字，在这纠结了有好大一会儿，太白痴了。用该字符减去‘A’，在加一，即得。得出结论：把字符转化为数字，减去一个字符串即可！！！<br>3：第一次刷uscao,别忘了要用文件，所有的题目都要用文件来完成。</p>
+<p>贴上我的代码，供大家参考：</p>
+<h1>include <iostream></h1>
+<h1>include <string></h1>
+<h1>include <fstream></h1>
+<p>int main()<br>{<br>    using namespace std;</p>
+<pre><code>ofstream fout (<span class="string">"ride.out"</span>);
+ifstream fin  (<span class="string">"ride.in"</span>);
+
+string a,b;
+
+ <span class="keyword">while</span>(fin &gt;&gt; a &gt;&gt; b)
+{
+    <span class="keyword">long</span> <span class="keyword">int</span> t1 = <span class="number">1</span>,t2 = <span class="number">1</span>;
+
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a<span class="variable">.size</span>(); i++)
+        t1 *= (a[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b<span class="variable">.size</span>(); i++)
+        t2 *= (b[i] - <span class="string">'A'</span> + <span class="number">1</span>);
+
+    <span class="keyword">if</span>((t1 % <span class="number">47</span>) == (t2 % <span class="number">47</span>))
+        fout &lt;&lt; <span class="string">"GO\n"</span>;
+    <span class="keyword">else</span>
+        fout &lt;&lt; <span class="string">"STAY\n"</span>;
+}
+
+<span class="keyword">return</span> <span class="number">0</span>;</code></pre>
+<p>}</p>
+
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/blog/">blog</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/解题报告/">解题报告</a>
+  </div>
+
         <!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
 <span class="bds_more">分享到：</span>
