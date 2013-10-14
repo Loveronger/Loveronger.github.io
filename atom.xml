@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com"/>
-  <updated>2013-10-14T07:12:55.520Z</updated>
+  <updated>2013-10-14T07:14:45.621Z</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
@@ -16,7 +16,7 @@
     <link href="http://yoursite.com/2013/10/14/二叉树的基本算法/"/>
     <id>http://yoursite.com/2013/10/14/二叉树的基本算法/</id>
     <published>2013-10-14T07:06:49.000Z</published>
-    <updated>2013-10-14T07:12:38.000Z</updated>
+    <updated>2013-10-14T07:14:31.000Z</updated>
     <content type="html"><![CDATA[<p>写了二叉排序树，基本的插入，查找，删除运算，下面是我的代码：</p>
 <pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
@@ -56,7 +56,7 @@ BiTree InsertBST(BiTree T,<span class="keyword">int</span> key);<span class="com
 
     system(<span class="string">"pause"</span>);
     <span class="keyword">return</span> <span class="number">0</span>;
-}
+}&lt;!--more--&gt;
 <span class="keyword">int</span> SearchBST(BiTree u,<span class="keyword">int</span> key)<span class="comment">//二叉排序树、查找的递归算法 </span>
 {
     BiTree p = u;
