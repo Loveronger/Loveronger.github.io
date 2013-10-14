@@ -52,6 +52,196 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-10-14T07:06:49.000Z"><a href="/2013/10/14/二叉树的基本算法/">10月 14 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/10/14/二叉树的基本算法/">二叉树的基本算法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1>二叉排序树的基本算法</h1>
+<p>写了二叉排序树，基本的插入，查找，删除运算，下面是我的代码：</p>
+<pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<span class="keyword">typedef</span>  <span class="keyword">struct</span> BiTNode{<span class="comment">//定义二叉排序树的结构 </span>
+    <span class="keyword">int</span> data;<span class="comment">//值</span>
+    <span class="keyword">struct</span> BiTNode *lchild,*rchild;<span class="comment">//左右孩子</span>
+    }BiTNode,*BiTree;
+<span class="keyword">void</span> inorder(BiTree T);  <span class="comment">//中序遍历 </span>
+<span class="keyword">int</span> DeleteBST(BiTree T,<span class="keyword">int</span> key);   <span class="comment">//删除特定元素</span>
+<span class="keyword">int</span> SearchBST(BiTree u,<span class="keyword">int</span> key);<span class="comment">//查找元素</span>
+BiTree InsertBST(BiTree T,<span class="keyword">int</span> key);<span class="comment">//插入元素</span>
+<span class="keyword">int</span> main()<span class="comment">//测试函数 </span>
+{
+    <span class="keyword">int</span> i,data,n,m;
+    BiTree tree = <span class="literal">NULL</span>;<span class="comment">//定义BiTNode 型的指针 </span>
+
+    printf(<span class="string">"Input your data:"</span>);
+    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)<span class="comment">//输入值 </span>
+    {
+          scanf(<span class="string">"%d"</span>,&amp;data);
+          tree = InsertBST(tree,data);<span class="comment">//构造树 </span>
+    }    
+
+    printf(<span class="string">"中序遍历结果："</span>)
+        inorder(tree);
+    printf(<span class="string">"\n"</span>); 
+
+    printf(<span class="string">"输入要查找的元素："</span>);
+    scanf(<span class="string">"%d"</span>,&amp;n); 
+    printf(<span class="string">"查找结果："</span>);
+    printf(<span class="string">"%d\n"</span>,SearchBST(tree,n));
+
+    printf(<span class="string">"输入要删除的元素："</span>);
+    scanf(<span class="string">"%d"</span>,&amp;m);
+    DeleteBST(tree,m);
+    inorder(tree);
+
+    system(<span class="string">"pause"</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+<span class="keyword">int</span> SearchBST(BiTree u,<span class="keyword">int</span> key)<span class="comment">//二叉排序树、查找的递归算法 </span>
+{
+    BiTree p = u;
+
+    <span class="keyword">if</span>(!p)
+          <span class="keyword">return</span> <span class="number">0</span>;
+    <span class="keyword">else</span> <span class="keyword">if</span>(key == p-&gt;data)
+          <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">else</span> <span class="keyword">if</span>(key &gt; p-&gt;data)
+          <span class="keyword">return</span> SearchBST(p-&gt;rchild,key);
+    <span class="keyword">else</span>
+          <span class="keyword">return</span> SearchBST(p-&gt;lchild,key);
+}
+BiTree InsertBST(BiTree T,<span class="keyword">int</span> key)<span class="comment">//二叉排序树的插入 </span>
+{
+       BiTree f = T,p = T;
+
+       <span class="keyword">while</span>(p)
+       {
+           <span class="keyword">if</span>(p-&gt;data == key)<span class="comment">//如果待插元素等于根结点的值 ，则不用插入 </span>
+                 <span class="keyword">return</span> T;<span class="comment">//返回根结点 </span>
+           f = p;<span class="comment">//用f记下查找路径上的最后一个访问的结点 </span>
+           p = (key &lt; p-&gt;data)? p-&gt;lchild:p-&gt;rchild;<span class="comment">//如果根结点值与待插元素不等，重置p,根据大小关系 </span>
+       }
+
+       p = (BiTNode *)malloc(<span class="keyword">sizeof</span>(BiTNode));<span class="comment">//申请待插元素所需空间 </span>
+       p-&gt;data = key;<span class="comment">//待插元素赋给此结点 </span>
+       p-&gt;lchild = p-&gt;rchild = <span class="literal">NULL</span>;<span class="comment">//将插入的元素所在结点的左右孩子均置为空 </span>
+
+       <span class="comment">//插入操作： </span>
+       <span class="keyword">if</span>(T == <span class="literal">NULL</span>)<span class="comment">//T为空，吧P赋给T </span>
+            T = p;
+       <span class="keyword">else</span> <span class="keyword">if</span>(key &lt; f-&gt;data)<span class="comment">//否则，插入待插元素 </span>
+            f-&gt;lchild = p;<span class="comment">//根据大小关系 </span>
+       <span class="keyword">else</span> 
+            f-&gt;rchild = p;<span class="comment">//根据大小关系插入 </span>
+
+       <span class="keyword">return</span> T;<span class="comment">//返回树根 </span>
+}    
+<span class="keyword">void</span> inorder(BiTree T)<span class="comment">//根据二叉排序树的特点，中序遍历后为顺序输出，元素已经排好序 </span>
+{
+     <span class="keyword">if</span>(T)
+     {
+          inorder(T-&gt;lchild); 
+          printf(<span class="string">"%d "</span>,T-&gt;data);
+          inorder(T-&gt;rchild);
+     }
+}
+<span class="keyword">int</span> DeleteBST(BiTree T,<span class="keyword">int</span> key)<span class="comment">//删除算法，删除其中一个关键字为key的结点 </span>
+{
+    BiTree p = T,f,q,s,root = T;
+
+    <span class="keyword">while</span>(p)
+    {
+            <span class="keyword">if</span>(p-&gt;data == key)<span class="comment">//找出关键字为key的结点 </span>
+                <span class="keyword">break</span>;
+
+            f = p;<span class="comment">//记录关键字key结点的父结点 </span>
+            p = (key &lt; p-&gt;data)? p-&gt;lchild:p-&gt;rchild;<span class="comment">//在P的左右子树中寻找 </span>
+    }
+
+    <span class="keyword">if</span>(!p)
+          <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//二叉排序树中无关键字为key的结点 </span>
+
+    <span class="keyword">if</span>(p-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild == <span class="literal">NULL</span>)<span class="comment">//P没有左右子树 </span>
+    {
+         <span class="keyword">if</span>(p == T)
+              T = <span class="literal">NULL</span>;<span class="comment">//删除的是根结点 </span>
+         <span class="keyword">else</span> <span class="keyword">if</span>(p == f-&gt;lchild)<span class="comment">//f为关键字为key的结点p的父结点 </span>
+              f-&gt;lchild = <span class="literal">NULL</span>;<span class="comment">//将f的左孩子置为空 </span>
+         <span class="keyword">else</span>
+              f-&gt;rchild = <span class="literal">NULL</span>;<span class="comment">//将f的右孩子置为空 </span>
+         free(p);<span class="comment">//删除结点p </span>
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild != <span class="literal">NULL</span>)
+    {<span class="comment">//P无左子树，有右子树 </span>
+         <span class="keyword">if</span>(f-&gt;lchild == p)
+              f-&gt;lchild = p-&gt;rchild;<span class="comment">//将p的右子树链接到其父结点的左链上</span>
+         <span class="keyword">else</span>
+              f-&gt;rchild = p-&gt;rchild;<span class="comment">//将p的右子树链接到其父结点的右链上</span>
+         free(p);
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild == <span class="literal">NULL</span>)
+    {<span class="comment">//p有左子树无右子树</span>
+         <span class="keyword">if</span>(f-&gt;lchild == p)
+              f-&gt;lchild = p-&gt;lchild;<span class="comment">//将p的左子树链接到其父结点的左链上</span>
+         <span class="keyword">else</span>
+              f-&gt;rchild = p-&gt;lchild;<span class="comment">//将p的左子树链接到其父结点的右链上</span>
+         free(p);
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild != <span class="literal">NULL</span>)<span class="comment">//p既有左子树又有右子树</span>
+    {
+         q = p;
+         s = p-&gt;lchild;<span class="comment">//转左</span>
+
+         <span class="keyword">while</span>(s-&gt;rchild)
+        {<span class="comment">//然后向右到尽头</span>
+              q = s;
+              s = s-&gt;rchild;<span class="comment">//s指向被删节点的"前驱"(中序前驱)</span>
+         }
+
+         p-&gt;data = s-&gt;data;<span class="comment">//以p的中序前趋结点s代替p（即把s的数据复制到p中）</span>
+
+         <span class="keyword">if</span>(q != p)
+              q-&gt;rchild = s-&gt;lchild;<span class="comment">//重接q的右子树</span>
+         <span class="keyword">else</span>
+              q-&gt;lchild = s-&gt;lchild;<span class="comment">//重接q的左子树。</span>
+         free(s);
+    }
+}    </code></pre>
+<p>其他操作我觉得都容易，在删除结点时，情况有点复杂，下面是一点小解析：</p>
+<p>假设在二叉排序树上被删除结点时<em>p(指向节点的指针为p),其双亲结点为</em>f(结点指针为f),且不是一般性，可设<em>p是</em>f的左孩子。</p>
+<p>分三种情况进行：</p>
+<ol>
+<li>若p结点为叶子节点，即p没有左右孩子，由于删除叶子节点不破坏整棵树的结构，则只需修改双亲节点的指针即可。</li>
+<li>若p结点只有左孩子或者只有右孩子，此时只要将其左孩子或右孩子直接成为其双亲结点f的左子树即可。</li>
+<li>若p结点左右子树均不空，先找到<em>p的中序前趋结点</em>s（注意<em>s是</em>p的左子树中的最右下的结点，它的右链域为空），然后有两种做法：其一是令p的左子树为f的左子树,而p的右子树为s的右子树；其二是令p的直接前驱(或直接后继)代替p，然后再从二叉排序树中删去它的直接前驱(或直接后继)。</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-10-13T05:04:25.000Z"><a href="/2013/10/13/your-ride-is-here/">10月 13 2013</a></time>
       
       

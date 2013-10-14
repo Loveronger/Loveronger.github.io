@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2013/10/14/二叉树的基本算法/</loc>
+    <lastmod>2013-10-14T07:08:39.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/2013/10/13/your-ride-is-here/</loc>
     <lastmod>2013-10-13T05:31:10.000Z</lastmod>
   </url>
