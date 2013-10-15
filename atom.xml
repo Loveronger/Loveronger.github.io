@@ -4,13 +4,106 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://Loveronger.tk/atom.xml" rel="self"/>
   <link href="http://Loveronger.tk"/>
-  <updated>2013-10-14T07:23:52.006Z</updated>
+  <updated>2013-10-15T04:17:02.052Z</updated>
   <id>http://Loveronger.tk/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
     <email><![CDATA[1402145603@qq.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[C语言的二叉树的创建和三种遍历方式]]></title>
+    <link href="http://Loveronger.tk/2013/10/15/c语言的二叉树的创建和三种遍历方式/"/>
+    <id>http://Loveronger.tk/2013/10/15/c语言的二叉树的创建和三种遍历方式/</id>
+    <published>2013-10-15T04:15:42.000Z</published>
+    <updated>2013-10-15T04:16:44.000Z</updated>
+    <content type="html"><![CDATA[<p>下面是纠结了好久完成的，还是没有完全理解树的概念所致：</p>
+<pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+
+typedef  struct BiTNode{
+
+    char data<span class="comment">;</span>
+
+    struct BiTNode *lchild,*rchild<span class="comment">;</span>
+ }BiTNode,*BiTree<span class="comment">;</span>
+
+BiTree  Creat(BiTree p)<span class="comment">;</span>
+void preorder(BiTree p)<span class="comment">;</span>
+void inorder(BiTree p)<span class="comment">;</span>
+void postorder(BiTree p)<span class="comment">;</span>
+
+int main()
+{
+    BiTree T<span class="comment">;</span>
+    T = Creat(T)<span class="comment">;</span>
+
+    preorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    inorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    postorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    system(<span class="string">"pause"</span>)<span class="comment">;</span>
+    return <span class="number">0</span><span class="comment">;</span>
+}
+
+BiTree Creat(BiTree p)//创建二叉树 
+{
+       char ch<span class="comment">;</span>
+       ch = getchar()<span class="comment">;//在输入的时候，由于创建时是按照先序的，所以输入时应该按先序输入 </span>
+
+       if(ch == <span class="string">'#'</span>)
+             p = NULL<span class="comment">;</span>
+       else
+       {
+           if(!(p = (BiTNode *)malloc(sizeof(BiTNode))))
+                  printf(<span class="string">"Error!\n"</span>)<span class="comment">;</span>
+           p-&gt;data = ch<span class="comment">;</span>
+           p-&gt;lchild = Creat(p-&gt;lchild)<span class="comment">;</span>
+           p-&gt;rchild = Creat(p-&gt;rchild)<span class="comment">;</span>
+       }
+
+       return p<span class="comment">;</span>
+}
+
+void preorder(BiTree p)// 先序遍历
+{
+     if(p)
+     {
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+          preorder(p-&gt;lchild)<span class="comment">;</span>
+          preorder(p-&gt;rchild)<span class="comment">;</span>
+     }
+}
+
+void inorder(BiTree p)// 中序遍历 
+{
+     if(p)
+     {
+          inorder(p-&gt;lchild)<span class="comment">;</span>
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+          inorder(p-&gt;rchild)<span class="comment">;</span>
+     }
+}
+
+void postorder(BiTree p)// 后序遍历 
+{
+     if(p)
+     {
+          postorder(p-&gt;lchild)<span class="comment">;</span>
+          postorder(p-&gt;rchild)<span class="comment">;</span>
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+     }
+}</code></pre>
+<p>自己学会建立二叉树，否则在输入时无法正常输出，我刚开始就烦了这样的错……</p>
+]]></content>
+    <category scheme="http://Loveronger.tk/tags/解题报告/" term="解题报告"/>
+    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[二叉树的基本算法]]></title>
     <link href="http://Loveronger.tk/2013/10/14/二叉树的基本算法/"/>

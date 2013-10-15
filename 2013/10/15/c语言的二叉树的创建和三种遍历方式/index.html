@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>My new post | Loveronger's blog</title>
+  <title>C语言的二叉树的创建和三种遍历方式 | Loveronger's blog</title>
   <meta name="author" content="Loveronger">
   
   <meta name="description" content="Walk straight ahead">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="My new post"/>
+  <meta property="og:title" content="C语言的二叉树的创建和三种遍历方式"/>
   <meta property="og:site_name" content="Loveronger's blog"/>
 
   
@@ -51,21 +51,99 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-10-06T14:13:06.000Z"><a href="/2013/10/06/hello-world/">10月 6 2013</a></time>
+        <time datetime="2013-10-15T04:15:42.000Z"><a href="/2013/10/15/c语言的二叉树的创建和三种遍历方式/">10月 15 2013</a></time>
       
       
   
-    <h1 class="title">My new post</h1>
+    <h1 class="title">C语言的二叉树的创建和三种遍历方式</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1>我的第一篇hexo的文章：</h1>
-<hr>
-<p>最近在看一本叫“深入浅出html”的书,于是舍友就推荐了这个……说hexo上可以自己搭建自己<br>的博客，而且写作比那个要方便的多，就一时兴起，开始折腾，这不，几天之后，终于把基本<br>的一些东西完全弄好了，这是我的第一篇个人博客！</p>
-<hr>
-<p>我会一直长足的走下去\:Markdown!</p>
+        <p>下面是纠结了好久完成的，还是没有完全理解树的概念所致：</p>
+<pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+
+typedef  struct BiTNode{
+
+    char data<span class="comment">;</span>
+
+    struct BiTNode *lchild,*rchild<span class="comment">;</span>
+ }BiTNode,*BiTree<span class="comment">;</span>
+
+BiTree  Creat(BiTree p)<span class="comment">;</span>
+void preorder(BiTree p)<span class="comment">;</span>
+void inorder(BiTree p)<span class="comment">;</span>
+void postorder(BiTree p)<span class="comment">;</span>
+
+int main()
+{
+    BiTree T<span class="comment">;</span>
+    T = Creat(T)<span class="comment">;</span>
+
+    preorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    inorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    postorder(T)<span class="comment">;</span>
+    printf(<span class="string">"\n"</span>)<span class="comment">;</span>
+
+    system(<span class="string">"pause"</span>)<span class="comment">;</span>
+    return <span class="number">0</span><span class="comment">;</span>
+}
+
+BiTree Creat(BiTree p)//创建二叉树 
+{
+       char ch<span class="comment">;</span>
+       ch = getchar()<span class="comment">;//在输入的时候，由于创建时是按照先序的，所以输入时应该按先序输入 </span>
+
+       if(ch == <span class="string">'#'</span>)
+             p = NULL<span class="comment">;</span>
+       else
+       {
+           if(!(p = (BiTNode *)malloc(sizeof(BiTNode))))
+                  printf(<span class="string">"Error!\n"</span>)<span class="comment">;</span>
+           p-&gt;data = ch<span class="comment">;</span>
+           p-&gt;lchild = Creat(p-&gt;lchild)<span class="comment">;</span>
+           p-&gt;rchild = Creat(p-&gt;rchild)<span class="comment">;</span>
+       }
+
+       return p<span class="comment">;</span>
+}
+
+void preorder(BiTree p)// 先序遍历
+{
+     if(p)
+     {
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+          preorder(p-&gt;lchild)<span class="comment">;</span>
+          preorder(p-&gt;rchild)<span class="comment">;</span>
+     }
+}
+
+void inorder(BiTree p)// 中序遍历 
+{
+     if(p)
+     {
+          inorder(p-&gt;lchild)<span class="comment">;</span>
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+          inorder(p-&gt;rchild)<span class="comment">;</span>
+     }
+}
+
+void postorder(BiTree p)// 后序遍历 
+{
+     if(p)
+     {
+          postorder(p-&gt;lchild)<span class="comment">;</span>
+          postorder(p-&gt;rchild)<span class="comment">;</span>
+          printf(<span class="string">"%c"</span>,p-&gt;data)<span class="comment">;</span>
+     }
+}</code></pre>
+<p>自己学会建立二叉树，否则在输入时无法正常输出，我刚开始就烦了这样的错……</p>
 
       
     </div>
@@ -80,7 +158,7 @@
         
   
   <div class="tags">
-    <a href="/tags/博客，文章/">博客，文章</a>
+    <a href="/tags/解题报告/">解题报告</a>
   </div>
 
         <!-- Baidu Button BEGIN -->
