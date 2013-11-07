@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://Loveronger.tk/atom.xml" rel="self"/>
   <link href="http://Loveronger.tk"/>
-  <updated>2013-11-07T05:14:17.054Z</updated>
+  <updated>2013-11-07T10:05:34.845Z</updated>
   <id>http://Loveronger.tk/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
@@ -16,7 +16,7 @@
     <link href="http://Loveronger.tk/2013/11/07/括号匹配/"/>
     <id>http://Loveronger.tk/2013/11/07/括号匹配/</id>
     <published>2013-11-07T04:29:26.000Z</published>
-    <updated>2013-11-07T04:30:49.000Z</updated>
+    <updated>2013-11-07T05:27:26.000Z</updated>
     <content type="html"><![CDATA[<p>这次用顺序栈实现的括号匹配，不多说，直接上代码：</p>
 <pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
@@ -106,15 +106,15 @@ l<span class="variable">.size</span> = SIZE;
 <span class="keyword">return</span> <span class="number">0</span>;
 }</code></pre>
 ]]></content>
-    <category scheme="http://Loveronger.tk/tags/blog/" term="blog"/>
-    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
+    <category scheme="http://Loveronger.tk/tags/Code/" term="Code"/>
+    <category scheme="http://Loveronger.tk/categories/数据结构/" term="数据结构"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[C语言的二叉树的创建和三种遍历方式]]></title>
     <link href="http://Loveronger.tk/2013/10/15/c语言的二叉树的创建和三种遍历方式/"/>
     <id>http://Loveronger.tk/2013/10/15/c语言的二叉树的创建和三种遍历方式/</id>
     <published>2013-10-15T04:15:42.000Z</published>
-    <updated>2013-10-15T04:18:04.000Z</updated>
+    <updated>2013-11-07T05:28:49.000Z</updated>
     <content type="html"><![CDATA[<p>下面是纠结了好久完成的，还是没有完全理解树的概念所致：</p>
 <pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
@@ -199,15 +199,15 @@ void postorder(BiTree p)// 后序遍历
 }</code></pre>
 <p>自己学会建立二叉树，否则在输入时无法正常输出，我刚开始就犯了这样的错……</p>
 ]]></content>
-    <category scheme="http://Loveronger.tk/tags/解题报告/" term="解题报告"/>
-    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
+    <category scheme="http://Loveronger.tk/tags/Code/" term="Code"/>
+    <category scheme="http://Loveronger.tk/categories/数据结构/" term="数据结构"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[二叉树的基本算法]]></title>
     <link href="http://Loveronger.tk/2013/10/14/二叉树的基本算法/"/>
     <id>http://Loveronger.tk/2013/10/14/二叉树的基本算法/</id>
     <published>2013-10-14T07:06:49.000Z</published>
-    <updated>2013-10-14T07:16:21.000Z</updated>
+    <updated>2013-11-07T05:26:58.000Z</updated>
     <content type="html"><![CDATA[<p>写了二叉排序树，基本的插入，查找，删除运算，下面是我的代码：</p>
 <pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
@@ -367,15 +367,15 @@ BiTree InsertBST(BiTree T,<span class="keyword">int</span> key)<span class="comm
 <li>若p结点左右子树均不空，先找到<em>p的中序前趋结点</em>s（注意<em>s是</em>p的左子树中的最右下的结点，它的右链域为空），然后有两种做法：其一是令p的左子树为f的左子树,而p的右子树为s的右子树；其二是令p的直接前驱(或直接后继)代替p，然后再从二叉排序树中删去它的直接前驱(或直接后继)。</li>
 </ol>
 ]]></content>
-    <category scheme="http://Loveronger.tk/tags/解题报告/" term="解题报告"/>
-    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
+    <category scheme="http://Loveronger.tk/tags/Code/" term="Code"/>
+    <category scheme="http://Loveronger.tk/categories/数据结构/" term="数据结构"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Your ride is here]]></title>
     <link href="http://Loveronger.tk/2013/10/13/your-ride-is-here/"/>
     <id>http://Loveronger.tk/2013/10/13/your-ride-is-here/</id>
     <published>2013-10-13T05:04:25.000Z</published>
-    <updated>2013-10-14T07:18:25.000Z</updated>
+    <updated>2013-11-07T05:26:34.000Z</updated>
     <content type="html"><![CDATA[<p>USCAO第一题： your ride is here<br>题目的翻译这里就不用再说了，相信这对大家来说不是问题。第一题我个人感觉考点如下:<br>1. 字符串的处理，要输入两个不超过6的字符串而且要逐个处理，还是用C++中的string方便，因为我觉得要用C语言的话光输入就够你头疼了。<br>2. 在处理过程中，要把字符转换成数字，在这纠结了有好大一会儿，太白痴了。用该字符减去‘A’，在加一，即得。得出结论：把字符转化为数字，减去一个字符串即可！！！<br>3：第一次刷uscao,别忘了要用文件，所有的题目都要用文件来完成。</p>
 <p>贴上我的代码，供大家参考：</p>
 <pre><code>\#include &lt;iostream&gt;
@@ -409,22 +409,22 @@ BiTree InsertBST(BiTree T,<span class="keyword">int</span> key)<span class="comm
     <span class="keyword">return</span> <span class="number">0</span>;
 }</code></pre>
 ]]></content>
-    <category scheme="http://Loveronger.tk/tags/解题报告/" term="解题报告"/>
-    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
+    <category scheme="http://Loveronger.tk/tags/Code/" term="Code"/>
+    <category scheme="http://Loveronger.tk/categories/解题报告/" term="解题报告"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[My new post]]></title>
     <link href="http://Loveronger.tk/2013/10/06/hello-world/"/>
     <id>http://Loveronger.tk/2013/10/06/hello-world/</id>
     <published>2013-10-06T14:13:06.000Z</published>
-    <updated>2013-10-14T07:19:17.000Z</updated>
+    <updated>2013-11-07T05:26:05.000Z</updated>
     <content type="html"><![CDATA[<h1>我的第一篇hexo的文章：</h1>
 <hr>
 <p>最近在看一本叫“深入浅出html”的书,于是舍友就推荐了这个……说hexo上可以自己搭建自己<br>的博客，而且写作比那个要方便的多，就一时兴起，开始折腾，这不，几天之后，终于把基本<br>的一些东西完全弄好了，这是我的第一篇个人博客！</p>
 <hr>
 <p>我会一直长足的走下去\:Markdown!</p>
 ]]></content>
-    <category scheme="http://Loveronger.tk/tags/博客，文章/" term="博客，文章"/>
+    <category scheme="http://Loveronger.tk/tags/文章/" term="文章"/>
     <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
   </entry>
 </feed>
