@@ -91,64 +91,71 @@
 }
 
 <span class="keyword">void</span> Push_st(stack &amp;l,<span class="keyword">char</span> e)
-{
+{    
     *(l<span class="variable">.top</span>++) = e;
 }
 
-<span class="keyword">char</span> Pop_st(stack &amp;l)
+<span class="keyword">void</span> Pop_st(stack &amp;l)
 {
-    <span class="keyword">return</span> *(--l<span class="variable">.top</span>);
+    <span class="keyword">if</span>(l<span class="variable">.top</span> == l<span class="variable">.base</span>)
+         <span class="keyword">return</span>;
+    <span class="keyword">else</span>
+         l<span class="variable">.top</span>--;
+}    
+
+<span class="keyword">char</span> Getop_st(stack &amp;l)
+{
+    <span class="keyword">if</span>(l<span class="variable">.top</span> == l<span class="variable">.base</span>)
+          exit(<span class="number">0</span>);
+    <span class="keyword">else</span> 
+          <span class="keyword">return</span> *(--l<span class="variable">.top</span>);
 }
 
 <span class="keyword">void</span> Checksymbol(stack &amp;l,<span class="keyword">char</span> *a)
 {
-    <span class="keyword">int</span> i, temp1, temp2 = <span class="number">0</span>;
+    <span class="keyword">int</span> flag = <span class="number">1</span>;
 
-    <span class="keyword">if</span>(strlen(a) == <span class="number">1</span>)  <span class="comment">//  如果字符串止只有一个字符，则肯定不匹配</span>
-        temp1 = <span class="number">0</span>;
-
-    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; strlen(a); i++)
-    {    
-        <span class="keyword">if</span>(a[i] == <span class="string">'('</span> || a[i] == <span class="string">'['</span> || a[i] == <span class="string">'{'</span>)  <span class="comment">// 如果是左括号，则入栈</span>
-            Push_st(l,a[i]);
-
-        <span class="keyword">if</span>(a[i] == <span class="string">')'</span> || a[i] == <span class="string">']'</span> || a[i] == <span class="string">'}'</span>)  <span class="comment">// 如果是右括号</span>
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strlen(a); i++)
+    {
+        <span class="keyword">if</span>(a[i] == <span class="string">'('</span> || a[i] == <span class="string">'['</span> || a[i] == <span class="string">'{'</span>)
+                Push_st(l,a[i]);
+        <span class="keyword">else</span> <span class="keyword">if</span>(a[i] == <span class="string">')'</span>)
         {
-            <span class="keyword">if</span>(Empty_st(l))   <span class="comment">//  而且栈内为空的话，则肯定不匹配</span>
-                temp1 = <span class="number">0</span>;
-            <span class="keyword">else</span>            <span class="comment">//  且栈不为空</span>
-            {
-                <span class="keyword">char</span> tt = Pop_st(l);  <span class="comment">//  弹出栈顶元素</span>
-                <span class="keyword">if</span>(a[i] == <span class="string">']'</span> &amp;&amp; tt == <span class="string">'['</span> || a[i] == <span class="string">'}'</span> &amp;&amp; tt == <span class="string">'{'</span> || a[i] == <span class="string">')'</span> &amp;&amp; tt == <span class="string">'('</span>)  <span class="comment">// 如果匹配</span>
-                    temp2++;   
-                <span class="keyword">else</span>
-                {
-                    temp1 = <span class="number">0</span>;
-                    <span class="keyword">break</span>;
-                }
-            }
+             <span class="keyword">if</span>(Empty_st(l) || Getop_st(l) != <span class="string">'('</span>)   flag = <span class="number">0</span>;                    
+             <span class="keyword">else</span>           Pop_st(l);
+        }                   
+        <span class="keyword">else</span> <span class="keyword">if</span>(a[i] == <span class="string">']'</span>)
+        {
+             <span class="keyword">if</span>(Empty_st(l) || Getop_st(l) != <span class="string">'['</span>)   flag = <span class="number">0</span>;              
+             <span class="keyword">else</span>           Pop_st(l);
+        }      
+        <span class="keyword">else</span> <span class="keyword">if</span>(a[i] == <span class="string">'}'</span>)       
+        {
+             <span class="keyword">if</span>(Empty_st(l) || Getop_st(l) != <span class="string">'{'</span>)   flag = <span class="number">0</span>;              
+             <span class="keyword">else</span>           Pop_st(l);
         }
     }
-    <span class="keyword">if</span>(temp1 == <span class="number">0</span>)
-        printf(<span class="string">"no\n"</span>);
-    <span class="keyword">if</span>(temp2 != <span class="number">0</span>)
-        printf(<span class="string">"yes\n"</span>);
-}
 
+    <span class="keyword">if</span>(!Empty_st(l))  flag = <span class="number">0</span>;
 
-<span class="keyword">int</span> main()
+    <span class="keyword">if</span>(flag)
+         printf(<span class="string">"Yes\n"</span>);
+    <span class="keyword">else</span>
+         printf(<span class="string">"No\n"</span>);</code></pre>
+<p>}</p>
+<pre><code>int main()
 {
-    <span class="keyword">char</span> ch[<span class="number">100</span>];
+    char ch[<span class="number">100</span>]<span class="comment">;</span>
 
-    <span class="keyword">while</span>(~scanf(<span class="string">"%s"</span>,ch))
+    while(~scanf(<span class="string">"%s"</span>,ch))
     {
-        stack s;
-        Init_st(s);
-        Checksymbol(s,ch);
+        stack s<span class="comment">;</span>
+        Init_st(s)<span class="comment">;</span>
+        Checksymbol(s,ch)<span class="comment">;</span>
     }
 
-    <span class="keyword">return</span> <span class="number">0</span>;
-}</code></pre>
+    return <span class="number">0</span><span class="comment">;</span></code></pre>
+<p>}</p>
 
       
     </div>
