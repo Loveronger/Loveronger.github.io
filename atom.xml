@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://Loveronger.tk/atom.xml" rel="self"/>
   <link href="http://Loveronger.tk"/>
-  <updated>2013-11-08T14:56:30.784Z</updated>
+  <updated>2013-11-08T14:57:46.067Z</updated>
   <id>http://Loveronger.tk/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
@@ -16,7 +16,7 @@
     <link href="http://Loveronger.tk/2013/11/07/括号匹配/"/>
     <id>http://Loveronger.tk/2013/11/07/括号匹配/</id>
     <published>2013-11-07T04:29:26.000Z</published>
-    <updated>2013-11-08T14:56:23.000Z</updated>
+    <updated>2013-11-08T14:57:33.000Z</updated>
     <content type="html"><![CDATA[<p>这次用顺序栈实现的括号匹配，不多说，直接上代码：</p>
 <pre><code><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
@@ -72,7 +72,6 @@
     <span class="keyword">int</span> flag = <span class="number">1</span>;
 
     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strlen(a); i++)
-    {
         <span class="keyword">if</span>(a[i] == <span class="string">'('</span> || a[i] == <span class="string">'['</span> || a[i] == <span class="string">'{'</span>)
                 Push_st(l,a[i]);
         <span class="keyword">else</span> <span class="keyword">if</span>(a[i] == <span class="string">')'</span>)
@@ -90,7 +89,6 @@
              <span class="keyword">if</span>(Empty_st(l) || Getop_st(l) != <span class="string">'{'</span>)   flag = <span class="number">0</span>;              
              <span class="keyword">else</span>           Pop_st(l);
         }
-    }
 
     <span class="keyword">if</span>(!Empty_st(l))  flag = <span class="number">0</span>;
 
