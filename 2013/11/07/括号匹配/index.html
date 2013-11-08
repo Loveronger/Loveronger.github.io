@@ -141,21 +141,22 @@
     <span class="keyword">if</span>(flag)
          printf(<span class="string">"Yes\n"</span>);
     <span class="keyword">else</span>
-         printf(<span class="string">"No\n"</span>);</code></pre>
-<p>}</p>
-<pre><code>int main()
-{
-    char ch[<span class="number">100</span>]<span class="comment">;</span>
+         printf(<span class="string">"No\n"</span>);
+}
 
-    while(~scanf(<span class="string">"%s"</span>,ch))
+<span class="keyword">int</span> main()
+{
+    <span class="keyword">char</span> ch[<span class="number">100</span>];
+
+    <span class="keyword">while</span>(~scanf(<span class="string">"%s"</span>,ch))
     {
-        stack s<span class="comment">;</span>
-        Init_st(s)<span class="comment">;</span>
-        Checksymbol(s,ch)<span class="comment">;</span>
+        stack s;
+        Init_st(s);
+        Checksymbol(s,ch);
     }
 
-    return <span class="number">0</span><span class="comment">;</span></code></pre>
-<p>}</p>
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
 
       
     </div>
