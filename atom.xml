@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk straight ahead]]></subtitle>
   <link href="http://Loveronger.tk/atom.xml" rel="self"/>
   <link href="http://Loveronger.tk"/>
-  <updated>2013-11-17T10:35:55.874Z</updated>
+  <updated>2013-11-17T14:32:21.296Z</updated>
   <id>http://Loveronger.tk/</id>
   <author>
     <name><![CDATA[Loveronger]]></name>
@@ -433,20 +433,5 @@ BiTree InsertBST(BiTree T,<span class="keyword">int</span> key)<span class="comm
 ]]></content>
     <category scheme="http://Loveronger.tk/tags/Code/" term="Code"/>
     <category scheme="http://Loveronger.tk/categories/解题报告/" term="解题报告"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[My new post]]></title>
-    <link href="http://Loveronger.tk/2013/10/06/hello-world/"/>
-    <id>http://Loveronger.tk/2013/10/06/hello-world/</id>
-    <published>2013-10-06T14:13:06.000Z</published>
-    <updated>2013-11-07T05:26:05.000Z</updated>
-    <content type="html"><![CDATA[<h1>我的第一篇hexo的文章：</h1>
-<hr>
-<p>最近在看一本叫“深入浅出html”的书,于是舍友就推荐了这个……说hexo上可以自己搭建自己<br>的博客，而且写作比那个要方便的多，就一时兴起，开始折腾，这不，几天之后，终于把基本<br>的一些东西完全弄好了，这是我的第一篇个人博客！</p>
-<hr>
-<p>我会一直长足的走下去\:Markdown!</p>
-]]></content>
-    <category scheme="http://Loveronger.tk/tags/文章/" term="文章"/>
-    <category scheme="http://Loveronger.tk/categories/blog/" term="blog"/>
   </entry>
 </feed>
